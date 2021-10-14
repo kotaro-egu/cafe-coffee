@@ -38,6 +38,8 @@ Route::group(['prefix' => 'admin'], function() {
     Route::get('posting/edit', 'Admin\PostingController@edit')->middleware('auth'); 
     Route::post('posting/edit', 'Admin\PostingController@update')->middleware('auth');
     Route::get('posting/delete', 'Admin\PostingController@delete')->middleware('auth');
+    
+    
 });
 
 Route::get('/profile', 'ProfileController@index');
