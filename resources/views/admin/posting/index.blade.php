@@ -34,6 +34,7 @@
                                 <th width="10%">ID</th>
                                 <th width="20%">タイトル</th>
                                 <th width="50%">本文</th>
+                                <th width="10%">操作</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -42,6 +43,16 @@
                                     <th>{{ $posts->id }}</th>
                                     <td>{{ \Str::limit($posts->title, 100) }}</td>
                                     <td>{{ \Str::limit($posts->body, 250) }}</td>
+                                    <td>
+                                       <div>
+                                           <a href="{{ action('Admin\PostingController@edit', ['id' => $posts->id]) }}">編集</a>
+                                           
+                                        </div>
+                                        <div>
+                                            <a href="{{ action('Admin\PostingController@delete', ['id' => $posts->id]) }}">削除</a>
+                                        
+                                        </div>  
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>
