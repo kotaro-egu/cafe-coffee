@@ -11,7 +11,7 @@ class Posting extends Model
     public static $rules = array(
         'title' => 'required',
         'body'=> 'required',
-        'image_path'=>'required',
+        'image'=>'required',
     );
 }
 
