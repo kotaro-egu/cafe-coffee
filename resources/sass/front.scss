@@ -1,37 +1,17 @@
 body {
   color: #000;
+  background-color: #efefef;
+}
+
+.navbar {
+    color: rgba(0,0,255,1);
 }
 
 .header {
   .logo {
-      width: 120px;
-      height: 82px;
-  }
-}
-
-.headline {
-  .caption {
-    position: relative;
-    width: 350px;
-    .image {
-      img {
-    width: 100%;
-      }
-    }
-    .title {
-      width: 100%;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      background-color: rgba(0, 0, 0, 0.6);
-      h1 {
-    color: #fff;
-    font-size: 1.2em;
-      }
-    }
-    .body {
-      font-size: 0.8em;
-    }
+    
+      width: 200px;
+      height: 300px;
   }
 }
 
@@ -42,7 +22,7 @@ body {
       color: #999999;
     }
     .title {
-      font-size: 1.2em;
+      font-size: 1.5em;
       font-weight: bold;
     }
     .body {
@@ -54,4 +34,11 @@ body {
       }
     }
   }
+}
+
+.title {
+   color: black;
+   width: 100px;
+   height: 30px;
+   display: block;
 }
