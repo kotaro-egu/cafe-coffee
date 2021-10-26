@@ -9,12 +9,12 @@ use App\Posting;
 class PostingController extends Controller
 {
     
-    public function add()
+  public function add()
   {
     return view('posting.create');
   }
 
- public function create(Request $request)
+  public function create(Request $request)
   {
       // このファンクションを実行することによってデータベースのnewsテーブルにデータが追加される
       $this->validate($request, Posting::$rules);
@@ -48,6 +48,7 @@ class PostingController extends Controller
       // それ以外はすべてのニュースを取得する
       $posts = Posting::all();
     }
+    
     return view('posting.index', ['posts' => $posts, 'cond_title' => $cond_title]);
   }
 

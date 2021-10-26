@@ -11,23 +11,28 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
 
-Route::get('profile/create','ProfileController@add');
-Route::get('profile/edit', 'ProfileController@edit');
-Route::post('profile/create','ProfileController@create');
-Route::post('profile/edit','ProfileController@update');
+//Route::get('profile/create','ProfileController@add');
+//Route::get('profile/edit', 'ProfileController@edit');
+//Route::post('profile/create','ProfileController@create');
+//Route::post('profile/edit','ProfileController@update');
+//Route::get('profile/edit', 'ProfileController@edit')->middleware('auth'); 
+//Route::post('profile/edit','ProfileController@update')->middleware('auth');
+
     
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/profile', 'ProfileController@index');
+//Route::get('/profile', 'ProfileController@index');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('profile/create','ProfileController@create')->middleware('auth');
-Route::get('/', 'PostingController@index');
+//Route::get('profile/create','ProfileController@create')->middleware('auth');
+Route::get('/', 'PostingController@index')->middleware('auth');
+Route::get('posting/add',     'PostingController@add')->middleware('auth');
+Route::post('posting/create', 'PostingController@create')->middleware('auth'); 
