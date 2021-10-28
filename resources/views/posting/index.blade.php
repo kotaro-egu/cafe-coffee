@@ -39,7 +39,8 @@
                             </tr>
                         </thead>
                         <tbody>
-                            
+                        </tbody>
+                    </table>
             <div class="posts col-md-8 mx-auto mt-3">
                 @foreach($posts as $post)
                     <div class="post">
@@ -53,6 +54,17 @@
                                 </div>
                                 <div class="body mt-3">
                                     {{ str_limit($post->body, 1500) }}
+                                </div>
+                                <div class="body mt-3">
+                                   
+                                <form action="{{ action('LikeController@create') }}" method="post" enctype="multipart/form-data">
+                                    <input type="hidden" name="post_id" value="{{ $post->id }}">
+                                   
+                                    {{ csrf_field() }}
+                                     <input type="submit" value="いいね">
+                                </form>
+                                {{ $post->users()->count() }}
+                        
                                 </div>
                             </div>
                             <div class="image col-md-6 text-right mt-4">

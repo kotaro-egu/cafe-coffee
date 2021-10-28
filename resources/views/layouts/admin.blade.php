@@ -63,6 +63,7 @@
                                         </a>    
                                                                                                                                  
                                         <from id="logout-from" action="{{ route('logout') }}" method="POST" style="display: none;"> 
+                                        
                                             @csrf
                                         </from> 
                                     </div>

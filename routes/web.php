@@ -23,16 +23,20 @@
 //Route::post('profile/edit','ProfileController@update')->middleware('auth');
 
     
-
+Route::post('posting/create', 'PostingController@create')->middleware('auth'); 
+Route::post('likes/create', 'LikeController@create')->middleware('auth'); 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 //Route::get('/profile', 'ProfileController@index');
-Auth::routes();
+
 
 Route::get('/home', 'HomeController@index')->name('home');
 //Route::get('profile/create','ProfileController@create')->middleware('auth');
 Route::get('/', 'PostingController@index')->middleware('auth');
 Route::get('posting/add',     'PostingController@add')->middleware('auth');
-Route::post('posting/create', 'PostingController@create')->middleware('auth'); 
+
+Route::get('/like', 'LikeController@index'); 
+Route::get('/ajax/like/user_list', 'LikeController@user_list'); 
+Route::post('/ajax/like', 'LikeController@like'); 

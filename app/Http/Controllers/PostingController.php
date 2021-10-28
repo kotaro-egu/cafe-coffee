@@ -16,6 +16,7 @@ class PostingController extends Controller
 
   public function create(Request $request)
   {
+   
       // このファンクションを実行することによってデータベースのnewsテーブルにデータが追加される
       $this->validate($request, Posting::$rules);
       $posts = new Posting;
@@ -25,7 +26,7 @@ class PostingController extends Controller
       
           $posts->image_path = basename($path);;
       } else {
-          $posts->image_path = null;
+          $posts->image_path = "";
       }
 
       unset($form['_token']);
@@ -35,7 +36,7 @@ class PostingController extends Controller
       $posts->fill($form);
       $posts->save();
 
-      return redirect('posting/create');
+      return redirect('/');
   } 
 
   public function index(Request $request)
