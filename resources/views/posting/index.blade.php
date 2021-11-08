@@ -11,7 +11,7 @@
         </div>
         
         <div class="posts col-md-8 mx-auto mt-3">
-                @foreach($posts as $post)
+                @foreach($posts as $index => $post)
                     <div class="post">
                 
                         
@@ -27,24 +27,19 @@
                           <p class="card-text">{{ str_limit($post->body, 1500) }}</p>
                  
                           <div align="right">
-                              <form action="{{ action('LikeController@create') }}" method="post" enctype="multipart/form-data">
+                              <form name="favorite" action="{{ action('LikeController@create') }}" method="post" enctype="multipart/form-data">
                               <input type="hidden" name="post_id" value="{{ $post->id }}">
                                        
                                 {{ csrf_field() }}
-                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bookmark-heart-fill" viewBox="0 0 16 16">
-                                 <path d=<i class="far fa-heart"></i>>
-                                 </svg>
-                                        
+
                                 @if ($post->users()->exists())
-                                <input class="like" type="submit" value="いいね!/Likes!">
+                                    <a href="javascript:favorite[{{$index}}].submit()"><i class="fas fa-heart text-danger"></i></a>
                                 @else
-                                <input class="no-like" type="submit" value="いいね!/Likes!">
+                                    <a href="javascript:favorite[{{$index}}].submit()"><i class="far fa-heart"></i></a>
                                 @endif
-                                       
-                                 </form>
-                                   {{ $post->users()->count() }}
-                                </div>
-　　　　　　　　　　　
+                            </form>
+                            {{ $post->users()->count() }}
+                        </div>
                     </div>
                     <hr color="#c0c0c0">
                 @endforeach
