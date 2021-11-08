@@ -5,79 +5,52 @@
     <div class="container">
         <hr color="#c0c0c0">
         <div class="row">
-            <h2>投稿一覧</h2>
-        </div>
-        <div class="row">
-            <div class="col-md-4">
-              <a href="{{ action('PostingController@add') }}" role="button" class="btn btn-primary">新規作成</a>
-            </div>
-            
-            <div class="col-md-8">
-                <form action="{{ action('PostingController@index') }}" method="get">
-                    <div class="form-group row">
-                        <label class="col-md-2">タイトル</label>
-                        <div class="col-md-8">
-                            <input type="text" class="form-control" name="cond_title" value="{{ $cond_title }}">
-                        </div>
-                        <div class="col-md-2">
-                            {{ csrf_field() }}
-                            <input type="submit" class="btn btn-primary" value="検索">
-                        </div>
-                    </div>
-                </form>
+            <h2>投稿一覧/postlists</h2>
+              </form>
             </div>
         </div>
-        <div class="row">
-            <div class="list-news col-md-12 mx-auto">
-                <div class="row">
-                    <table class="table table-dark">
-                        <thead>
-                            <tr>
-                                <th width="10%">ID</th>
-                                <th width="20%">タイトル</th>
-                                <th width="50%">本文</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
-            <div class="posts col-md-8 mx-auto mt-3">
+        
+        <div class="posts col-md-8 mx-auto mt-3">
                 @foreach($posts as $post)
                     <div class="post">
-                        <div class="row">
-                            <div class="text col-md-6">
-                                <div class="date">
-                                    {{ $post->updated_at->format('Y年m月d日') }}
-                                </div>
-                                <div class="title">
-                                    {{ str_limit($post->title, 150) }}
-                                </div>
-                                <div class="body mt-3">
-                                    {{ str_limit($post->body, 1500) }}
-                                </div>
-                                <div class="body mt-3">
-                                   
-                                <form action="{{ action('LikeController@create') }}" method="post" enctype="multipart/form-data">
-                                    <input type="hidden" name="post_id" value="{{ $post->id }}">
-                                   
-                                    {{ csrf_field() }}
-                                     <input type="submit" value="いいね">
-                                </form>
-                                {{ $post->users()->count() }}
+                
                         
-                                </div>
-                            </div>
-                            <div class="image col-md-6 text-right mt-4">
-                                @if ($post->image_path)
-                                    <img src="{{ asset('storage/image/' . $post->image_path) }}">
+                        <div class="card card-padding" style="width: 54rem;">
+                           <p>{{ $post->created_at->format('Y/m/d(D)H:i') }}</p>
+                           <p>{{ $post->user->id }}:{{ $post->user->name }}</p>
+
+                         @if ($post->image_path)
+                            <h5 class="card-title"> {{ str_limit($post->title, 200) }}</h5>
+                            <img src="{{ asset('storage/image/' . $post->image_path) }}" class="card-img-top">
+                         @endif
+            
+                          <p class="card-text">{{ str_limit($post->body, 1500) }}</p>
+                 
+                          <div align="right">
+                              <form action="{{ action('LikeController@create') }}" method="post" enctype="multipart/form-data">
+                              <input type="hidden" name="post_id" value="{{ $post->id }}">
+                                       
+                                {{ csrf_field() }}
+                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bookmark-heart-fill" viewBox="0 0 16 16">
+                                 <path d=<i class="far fa-heart"></i>>
+                                 </svg>
+                                        
+                                @if ($post->users()->exists())
+                                <input class="like" type="submit" value="いいね!/Likes!">
+                                @else
+                                <input class="no-like" type="submit" value="いいね!/Likes!">
                                 @endif
-                            </div>
-                        </div>
+                                       
+                                 </form>
+                                   {{ $post->users()->count() }}
+                                </div>
+　　　　　　　　　　　
                     </div>
                     <hr color="#c0c0c0">
                 @endforeach
             </div>
         </div>
+    </div>
     </div>
     </div>
 @endsection

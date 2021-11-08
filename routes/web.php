@@ -36,7 +36,22 @@ Route::get('/home', 'HomeController@index')->name('home');
 //Route::get('profile/create','ProfileController@create')->middleware('auth');
 Route::get('/', 'PostingController@index')->middleware('auth');
 Route::get('posting/add',     'PostingController@add')->middleware('auth');
+Route::get('posting/edit',     'PostingController@edit')->middleware('auth');
+Route::post('posting/edit', 'PostingController@update')->middleware('auth'); 
 
 Route::get('/like', 'LikeController@index'); 
 Route::get('/ajax/like/user_list', 'LikeController@user_list'); 
 Route::post('/ajax/like', 'LikeController@like'); 
+Route::resource('comment', 'CommentsController', ['only' => ['store']]);
+
+Route::group(['prefix'=>'users'],function(){
+  Route::group(['middleware' => 'auth'], function(){
+    Route::get('edit/{id}','UsersController@getEdit')->name('users.edit');
+    Route::post('edit/{id}', 'UsersController@postEdit')->name('users.postEdit');
+  });
+});
+
+Route::get('/logout2', function () {
+    Auth::logout();
+    return redirect('login');
+});

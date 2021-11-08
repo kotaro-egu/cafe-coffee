@@ -12,6 +12,10 @@ body {
   height: 300px;
 }
 
+.posts .post .card-padding {
+  padding: 10px;
+}
+
 .posts .post .date {
   font-size: 0.6em;
   color: #999999;
@@ -26,8 +30,23 @@ body {
   font-size: 0.8em;
 }
 
-.posts .post .image img {
-  width: 250px;
+.posts .post img {
+  width: 500px;
+}
+
+.posts .post .like {
+  color: black;
+  background-color: lightgreen;
+}
+
+.card {
+  background-color: antiquewhite;
+}
+
+.a#navbarDropdown {
+  color: azure;
+  -webkit-text-decoration: revert;
+          text-decoration: revert;
 }
 
 .title {

@@ -12178,3 +12178,9 @@ fieldset:disabled .btn {
   }
 }
 
+.a#navbarDropdown {
+  color: azure;
+  -webkit-text-decoration: revert;
+          text-decoration: revert;
+}
+

@@ -6,10 +6,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable
-
-
-{
+class User extends Authenticatable{
     use Notifiable;
 
     /**
@@ -44,6 +41,17 @@ class User extends Authenticatable
     {
         return $this->belongsToMany('App\Posting')->withTimestamps();
     }
-}
     
-
+   public function selectUserFindByld($id)
+    {
+         $query = $this->select([
+          'id',
+          'name',
+          'email'
+        ])->where([
+           'id' => $id
+        ]);
+        
+        return $query->first();
+    }
+}

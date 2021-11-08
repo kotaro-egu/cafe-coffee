@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Posting;
-
+use Auth;
 class PostingController extends Controller
 {
     
@@ -19,22 +19,23 @@ class PostingController extends Controller
    
       // このファンクションを実行することによってデータベースのnewsテーブルにデータが追加される
       $this->validate($request, Posting::$rules);
-      $posts = new Posting;
+      $post = new Posting;
+      $post->user_id = Auth::id();
       $form = $request->all();
       if (isset($form['image'])) {
           $path = $request->file('image')->store('public/image');
       
-          $posts->image_path = basename($path);;
+          $post->image_path = basename($path);;
       } else {
-          $posts->image_path = "";
+          $post->image_path = "";
       }
 
       unset($form['_token']);
 
       unset($form['image']);
 
-      $posts->fill($form);
-      $posts->save();
+      $post->fill($form);
+      $post->save();
 
       return redirect('/');
   } 
@@ -74,4 +75,15 @@ class PostingController extends Controller
 
     return redirect('post/');
     }
+    
+     public function edit(Request $request)
+   {
+       // Profile Modelからデータを取得する
+       $posting = Posting::find($request->id);
+       if (empty($posting)) {
+         abort(404);    
+       }
+       return view('posting.edit', ['posting_form' => $posting]);
+   }
+    
 }

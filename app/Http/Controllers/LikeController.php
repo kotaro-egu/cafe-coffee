@@ -14,7 +14,8 @@ class LikeController extends Controller
         $user_id = Auth::user()->id;
         
         $post = Posting::find($post_id);
-        $post->users()->attach($user_id);
+        if (is_null($post->users()->find($user_id)))
+            $post->users()->attach($user_id);
 
         return redirect('/');
     }

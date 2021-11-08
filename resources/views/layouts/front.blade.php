@@ -32,67 +32,111 @@
         <div id="app">
             {{-- 画面上部に表示するナビゲーションバーです。 --}}
             <nav class="cafeposts navbar-expand-lg navbar-light " style="background-color: hsla(50, 33%, 25%, .75);">
-              <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+              <!--<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">-->
+              <!--  <span class="navbar-toggler-icon"></span>-->
+              <!--</button>-->
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
-              <a class="navbar-brand" href="">Navbar</a>
-
-              <!--<div class="collapse navbar-collapse" id="navbarTogglerDemo02">-->
-                <ul class="navbar-nav ml-auto">
+              
+              <a class="cafeposts navbar-expand-lg navbar-light" href="#">
+                <img width="80" height="80" src="/images/test.jpeg">
+              </a>
+              
+              <a class="navbar-brand" href="#">Navbar</a>
+              <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                  <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">home</a>
+                    </li>
                             
-                            @guest
-                                <li><a class="nav-link" href="{{ route ('login') }}">{{ __('login') }} </a></li>
-
-                            @else
-                                <!--<li class="nav-item dropdown">-->
-                                    <a id ="navbarDropdown" class="" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-
-                                                                           {{ Auth::user()->name }} <span class="caret"></span>
-                                    </a>  
-                                                                        
-                                    <div class="" aria-labellebdy="navbarDropdown">
-                                                                        
-                                        <a class="dropd" href="{{ route('logout') }} " onclick="event.preventDefault();document.getElementById('logout-from').submit();">
-                                            
-                                        </a>    
-                                                                                                                                 
-                                        <form id="logout-from" action="{{ route('logout') }}" method="POST" style="display: block;"> 
-                                            @csrf
-                                            <input type="submit" value="ログアウト"/>
-                                        </form> 
-                                    </div>
-                                 <!--</li>  -->
-                             @endguest
-                        </ul>
-              <!--</div>-->
-            </nav>
-            
-                <div class="container">
-                    <a class="navbar-brand title" href="{{ url('/') }}">
-                        <h1 class="logo">cafeposts</h1>
-                        <p class="text-sub">~share cafe and coffee with everyone!~</p>
-                    </a>
+                    <li class="nav-item">
+                       {{-- <a class="nav-link" href="#"></a>　--}}
+                        <!--<div class="col-md-4">-->
+                             <a href="{{ action('PostingController@add') }}" role="button" class="nav-link btn btn-primary.ps-5">新規作成/new post</a>
+                        <!--</div>-->
+                    </li>
+                    <li class="nav-item">
+                        {{-- <a class="nav-link" href="#"></a>. --}}
+                        
+                        <!--<div class="col-md-4">-->
+                          <a  href="/logout2" role="button" class="nav-link btn btn-primary.ps-sm-3" >
+                           logout/ログアウト                  
+                          </a>   
+                          <!--</div>-->
+                    </li>
+                    </ul>
                     
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <!-- Left Side Of Navbar -->
-                        <ul class="navbar-nav mr-auto">
-
-                        </ul>
-
-                        <!-- Right Side Of Navbar -->
-                    </div>
-                </div>
+                     <form action="{{ action('PostingController@index') }}" method="get">
+                        <div class="form-group row">
+                        <label class="col-md-2"> <i class="fas fa-search"></i></label>
+                        <div class="col-md-8">
+                           <input type="text" class="form-control" name="cond_title" value="{{ $cond_title }}">
+                        </div>
+                    <div class="col-md-2">
+                           {{ csrf_field() }}
+                           <input type="submit" class="btn btn-primary" value="検索/search">
+                        </div>
+                    </div>                
+                 </form>
+               </div>
+                       
+                          
+                          
+                        {{--    
+                          <a  href="{{ route('logout') }} " role="button" class="btn btn-primary" 
+                             onclick="event.preventDefault();
+                                      document.getElementById('logout-form').submit();">
+                           logout/ログアウト                  
+                          </a>    
+                                                                                                                                 
+                          <from id="logout-form" action="{{ route('logout') }}" method="POST" > 
+                            @csrf
+                          </from>
+                          --}}
+            </div>
             </nav>
-            {{-- ここまでナビゲーションバー --}} 
+            <!--<li class="nav-item dropdown">-->
+            <a id ="navbarDropdown" class="" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                
+            </a>  
 
             <main class="py-4">
+             <div class="container">
+                <a class="navbar-brand title" href="{{ url('/') }}">
+                    <h1 class="logo">☕️cafeposts☕ </h1>
+                    <p class="text-sub">~share cafe and coffee with everyone!~</p>
+                </a>
+                <img src="/images/coffee-geeccc6cc2_640.jpg">
+                <div class="col-md-8">
+                
+               　 <form action="{{ action('PostingController@index') }}" method="get">
+                    <div class="form-group row">
+                        <label class="col-md-2">main title ⇨</label>
+                        <div class="col-md-8">
+                           <input type="text" class="form-control" name="cond_title" value="{{ $cond_title }}">
+                        </div>
+                        <div class="col-md-2">
+                           {{ csrf_field() }}
+                           <input type="submit" class="btn btn-primary" value="検索/search">
+                        </div>
+                    </div>                
+                 </form>
+               </div>
+             
+
                 {{-- コンテンツをここに入れるため、@yieldで空けておきます。 --}}
                 @yield('content')
             </main>
+            
+             <footer class="py-4" style="background-color: hsla(50, 33%, 25%, .75);">
+            <!--<div class="container-footer">-->
+            <!--    <p class="float-end mb-1"><a href="#">ページ上部へ<br>Back to top</a>-->
+            <!--</div>-->
+                <div class="container">
+                    <p>&copy;cafeposts  Developed 2021.</p>
+                </div>
+            </footer>
         </div>
        
        

@@ -13,6 +13,12 @@ class Posting extends Model
         'body'=> 'required',
         // 'image'=>'required',
     );
+    
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
+    
     public function users()
     {
         return $this->belongsToMany('App\User')->withTimestamps();

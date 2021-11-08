@@ -7,6 +7,14 @@ body {
     color: rgba(0,0,255,1);
 }
 
+.navbar-expand-lg {
+  background: url("277-1-800x800.jpeg") no-repeat left center;
+  background-size: contain;
+  height: 50px;
+  width: 250px;
+}
+
+
 .header {
   .logo {
     
@@ -17,6 +25,10 @@ body {
 
 .posts {
   .post {
+    .card-padding {
+      padding: 10px;
+    }
+    
     .date {
       font-size: 0.6em;
       color: #999999;
@@ -28,12 +40,20 @@ body {
     .body {
       font-size: 0.8em;
     }
-    .image {
-      img {
-    width: 250px;
-      }
+    img {
+      width: 500px;
+    }
+    .like {
+      color:black;
+      background-color:lightgreen;
+    }
+    .no-like {
     }
   }
+}
+
+.card {
+  background-color: antiquewhite;
 }
 
 .title {
