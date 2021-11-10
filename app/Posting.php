@@ -11,7 +11,7 @@ class Posting extends Model
     public static $rules = array(
         'title' => 'required',
         'body'=> 'required',
-        // 'image'=>'required',
+         'image'=>'required',
     );
     
     public function user()
@@ -22,6 +22,10 @@ class Posting extends Model
     public function users()
     {
         return $this->belongsToMany('App\User')->withTimestamps();
+    }
+    public function comments()
+    {
+        return $this->hasMany('App\Comment');
     }
 }
 

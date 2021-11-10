@@ -7,8 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 class Comment extends Model
 {
     protected $fillable = [
-     'post_id',
-        'name',
-        'comment', 
+        'user_id',
+        'text',
+        'posting_id', 
     ];
+    
+        public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 }

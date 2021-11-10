@@ -11,8 +11,8 @@ class CreatePostingUserTable extends Migration
      *
      * @return void
      */
-    //  TO: 消した人へ。こいつを消すといいね機能が動作しなくなるので消すさないで。
-    //    もし決して綺麗なコードにしたいなら、テーブル追加やコントローラー修正までやってください。
+    //  TO:↓ 消した人へ。こいつを消すといいね機能が動作しなくなるので消さないでね。
+    //      もし消して綺麗なコードにしたいなら、テーブル追加やコントローラー修正までやってください。
     public function up()
     {
         Schema::create('posting_user', function (Blueprint $table) {

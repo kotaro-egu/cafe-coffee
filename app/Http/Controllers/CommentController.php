@@ -3,17 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\CommentRequest; 
 
 use App\Comment; 
- 
-class CommentsController extends Controller
 
+class CommentController extends Controller
 {
-     public function add($posting_id){
-        return view('comments.create')->with('posting_id',$posting_id);
-     }
-    
      public function store(CommentRequest $request)
     {
         $savedata = [
@@ -21,12 +15,10 @@ class CommentsController extends Controller
             'text' => $request->text,
             'posting_id' => $request->posting_id,
         ];
-      
+ 
         $comment = new Comment;
         $comment->fill($savedata)->save();
-        
-        return redirect('/');
+ 
+        return redirect()->route('bbs.show', [$savedata['posting_id']])->with('commentstatus','コメントを投稿しました');
     }
-
 }
-

@@ -40,7 +40,7 @@
               </button>
               
               <a class="cafeposts navbar-expand-lg navbar-light" href="#">
-                <img width="80" height="80" src="/images/test.jpeg">
+                <img width="100" height="100" src="/images/test.jpeg">
               </a>
               
               <a class="navbar-brand" href="#">Navbar</a>
@@ -107,23 +107,18 @@
                     <h1 class="logo">☕️cafeposts☕ </h1>
                     <p class="text-sub">~share cafe and coffee with everyone!~</p>
                 </a>
-                <img src="/images/coffee-geeccc6cc2_640.jpg">
-                <div class="col-md-8">
                 
-               　 <form action="{{ action('PostingController@index') }}" method="get">
-                    <div class="form-group row">
-                        <label class="col-md-2">main title ⇨</label>
-                        <div class="col-md-8">
-                           <input type="text" class="form-control" name="cond_title" value="{{ $cond_title }}">
-                        </div>
-                        <div class="col-md-2">
-                           {{ csrf_field() }}
-                           <input type="submit" class="btn btn-primary" value="検索/search">
-                        </div>
-                    </div>                
-                 </form>
-               </div>
+                <div class="row">
+                <div class="col-md-8">
+                    <img src="/images/coffee-geeccc6cc2_640.jpg">
+                </div>
              
+             <div class ="col-md-4">
+      
+              <h2 class="text-title">Welcome to cafeposts! Would you chill out and post on your photo?</h2>
+              <h2 class="text-title">lo</h2>
+              </div>
+             </div>
 
                 {{-- コンテンツをここに入れるため、@yieldで空けておきます。 --}}
                 @yield('content')

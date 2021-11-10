@@ -42,7 +42,8 @@ Route::post('posting/edit', 'PostingController@update')->middleware('auth');
 Route::get('/like', 'LikeController@index'); 
 Route::get('/ajax/like/user_list', 'LikeController@user_list'); 
 Route::post('/ajax/like', 'LikeController@like'); 
-Route::resource('comment', 'CommentsController', ['only' => ['store']]);
+Route::resource('comment', 'CommentsController');
+Route::get('comments/add/{posting_id}',     'CommentsController@add')->middleware('auth');
 
 Route::group(['prefix'=>'users'],function(){
   Route::group(['middleware' => 'auth'], function(){

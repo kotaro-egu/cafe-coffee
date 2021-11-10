@@ -7,14 +7,6 @@ body {
     color: rgba(0,0,255,1);
 }
 
-.navbar-expand-lg {
-  background: url("277-1-800x800.jpeg") no-repeat left center;
-  background-size: contain;
-  height: 50px;
-  width: 250px;
-}
-
-
 .header {
   .logo {
     
@@ -43,14 +35,15 @@ body {
     img {
       width: 500px;
     }
-    .like {
-      color:black;
-      background-color:lightgreen;
-    }
-    .no-like {
-    }
   }
 }
+
+.btn-primary {
+    color: #000;
+    background-color: #adb5bd;
+    border-color: #e9ecef;
+}
+
 
 .card {
   background-color: antiquewhite;
