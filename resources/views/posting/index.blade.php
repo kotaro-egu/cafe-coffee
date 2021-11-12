@@ -25,9 +25,9 @@
                          @endif
                           <p class="card-text">{{ str_limit($post->body, 1500) }}</p>
                           
-                          <a href="{{ action('CommentsController@add',['posting_id' => $post->id]) }}" role="button" class="btn btn-primary">投稿返信/add comment</a> 
+                          <a href="{{ action('CommentsController@add',['posting_id' => $post->id]) }}" role="button" class="btn btn-outline-dark btn-light btn w-25">投稿返信/add comment</a> 
                            
-                           <a>🖌返信コメント🖌</a>
+                           <a>🖌返信コメント/reply🖋 </a>
                            
                           @if ($post->comments)
                               @foreach($post->comments as $comment)

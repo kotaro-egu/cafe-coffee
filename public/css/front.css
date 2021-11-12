@@ -54,3 +54,7 @@ body {
   display: block;
 }
 
+
+.front-images p {
+  display: inline-block;
+}

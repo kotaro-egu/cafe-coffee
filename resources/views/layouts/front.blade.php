@@ -47,42 +47,27 @@
               <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                   <ul class="navbar-nav">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">home</a>
+                        <a class="nav-link" href="#">TOP</a>
                     </li>
                             
                     <li class="nav-item">
                        {{-- <a class="nav-link" href="#"></a>　--}}
                         <!--<div class="col-md-4">-->
-                             <a href="{{ action('PostingController@add') }}" role="button" class="nav-link btn btn-primary.ps-5">新規作成/new post</a>
+                             <a href="{{ action('PostingController@add') }}" role="button" class="nav-link active">新規作成/new posting!</a>
                         <!--</div>-->
                     </li>
                     <li class="nav-item">
                         {{-- <a class="nav-link" href="#"></a>. --}}
                         
                         <!--<div class="col-md-4">-->
-                          <a  href="/logout2" role="button" class="nav-link btn btn-primary.ps-sm-3" >
+                          <a  href="/logout2" role="button" class="nav-link active" >
                            logout/ログアウト                  
                           </a>   
                           <!--</div>-->
                     </li>
                     </ul>
                     
-                     <form action="{{ action('PostingController@index') }}" method="get">
-                        <div class="form-group row">
-                        <label class="col-md-2"> <i class="fas fa-search"></i></label>
-                        <div class="col-md-8">
-                           <input type="text" class="form-control" name="cond_title" value="{{ $cond_title }}">
-                        </div>
-                    <div class="col-md-2">
-                           {{ csrf_field() }}
-                           <input type="submit" class="btn btn-primary" value="検索/search">
-                        </div>
-                    </div>                
-                 </form>
-               </div>
-                       
-                          
-                          
+                
                         {{--    
                           <a  href="{{ route('logout') }} " role="button" class="btn btn-primary" 
                              onclick="event.preventDefault();
@@ -109,16 +94,11 @@
                 </a>
                 
                 <div class="row">
-                <div class="col-md-8">
-                    <img src="/images/coffee-geeccc6cc2_640.jpg">
-                </div>
-             
-             <div class ="col-md-4">
-      
-              <h2 class="text-title">Welcome to cafeposts! Would you chill out and post on your photo?</h2>
-              <h2 class="text-title">lo</h2>
-              </div>
-             </div>
+                    <div class="col-md-12 front-images">
+                        <p><img src="/images/coffee-geeccc6cc2_640.jpg"></p>
+                        <p><img width="610" height="440" src="/images/149074D2-459A-4920-AE2B-E432E3A5E94A.png"></p>           
+                    </div>
+                 </div>
 
                 {{-- コンテンツをここに入れるため、@yieldで空けておきます。 --}}
                 @yield('content')

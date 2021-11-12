@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Login/登録済ユーザー') }}</div>
+                <div class="card-header">{{ __('Fill in → Login/登録済ユーザー') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
@@ -62,6 +62,11 @@
                                         {{ __('Forgot Your Password?/パスワード再登録') }}
                                     </a>
                                 @endif
+                                
+                            <div style="text-align: justify;padding-top:50px;"> 
+                             <a>new account user？/新規作成はこちら→</a>　
+                             <a class="btn-primary btn" href="https://1aba965f28ab49eab49987b8d40c938b.vfs.cloud9.us-east-2.amazonaws.com/register">
+                             新規登録/create new account</a>
                             </div>
                         </div>
                     </form>
