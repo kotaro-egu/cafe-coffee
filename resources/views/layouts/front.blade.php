@@ -100,8 +100,10 @@
                 
                 <div class="row">
                     <div class="col-md-12 front-images">
-                        <p><img src="/images/coffee-geeccc6cc2_640.jpg"></p>
-                        <p><img width="610" height="440" src="/images/149074D2-459A-4920-AE2B-E432E3A5E94A.png"></p>           
+                        <p>
+                           <span><img src="/images/coffee-geeccc6cc2_640.jpg"></span>
+                           <span><img width="610" height="440" src="/images/149074D2-459A-4920-AE2B-E432E3A5E94A.png"></span>
+                        </p>           
                     </div>
                  </div>
 
