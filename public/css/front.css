@@ -34,19 +34,14 @@ body {
   width: 500px;
 }
 
-.posts .post .like {
-  color: black;
-  background-color: lightgreen;
+.btn-primary {
+  color: #000;
+  background-color: #adb5bd;
+  border-color: #e9ecef;
 }
 
 .card {
   background-color: antiquewhite;
-}
-
-.a#navbarDropdown {
-  color: azure;
-  -webkit-text-decoration: revert;
-          text-decoration: revert;
 }
 
 .title {
@@ -54,7 +49,3 @@ body {
   display: block;
 }
 
-
-.front-images p {
-  display: inline-block;
-}
