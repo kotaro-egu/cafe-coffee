@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 mx-auto">
-                <h2>コメント返信/add comments</h2>
+                <h2>コメント返信/comment reply</h2>
                 <form action="{{ action('CommentsController@store') }}" method="post" enctype="multipart/form-data">
                   <input
                     name="user_id"

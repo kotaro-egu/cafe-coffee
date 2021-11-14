@@ -6,16 +6,17 @@
         <hr color="#c0c0c0">
         <div class="row">
             <h2>投稿一覧/postlists</h2>
+            <a href="{{ action('PostingController@add') }}" role="button" class="btn btn-outline-dark btn-light btn w-25" >新規作成/new posting!</a>
         </div>
-    </div>
+    </div><br>
         
     <div class="posts col-md-8 mx-auto mt-3">
         @foreach($posts as $index => $post)
             <div class="post">
                 <div class="card card-padding" style="width: 54rem;">
                     <p>
-                        <span class="posted-time">{{ $post->created_at->format('Y/m/d(D)H:i') }}</span>
                         <span>{{ $post->user->id }}:{{ $post->user->name }}</span>
+                        <span class="posted-time">{{ $post->created_at->format('Y/m/d(D)H:i') }}</span>
                     </p>
                     
                     @if ($post->image_path)
@@ -41,10 +42,10 @@
                           
                     <div>
                         <p align="right">
-                            <a href="{{ action('CommentsController@add',['posting_id' => $post->id]) }}" role="button" class="btn btn-outline-dark btn-light btn w-25">投稿返信/add comment</a> 
+                            <a href="{{ action('CommentsController@add',['posting_id' => $post->id]) }}" role="button" class="btn btn-outline-dark btn-light btn w-25">投稿返信/comment reply</a> 
                         </p>
                         
-                        <p>🖌返信コメント/reply🖋</p>
+                        <p>🖌返信コメント/replylists🖋</p>
                            
                         @if ($post->comments)
                             @foreach($post->comments as $comment)
