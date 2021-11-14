@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Posting;
 use Auth;
+use Storage;
 class PostingController extends Controller
 {
     
@@ -23,9 +24,8 @@ class PostingController extends Controller
       $post->user_id = Auth::id();
       $form = $request->all();
       if (isset($form['image'])) {
-          $path = $request->file('image')->store('public/image');
-      
-          $post->image_path = basename($path);;
+          $path = Storage::disk('s3')->putFile('/',$posts_form['image'],'public');
+          $posts->image_path = Storage::disk('s3')->url($path);   
       } else {
           $post->image_path = "";
       }

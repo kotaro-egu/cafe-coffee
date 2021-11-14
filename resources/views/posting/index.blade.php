@@ -21,7 +21,7 @@
                     
                     @if ($post->image_path)
                         <h5 class="card-title"> {{ str_limit($post->title, 200) }}</h5>
-                        <img src="{{ asset('storage/image/' . $post->image_path) }}" class="card-img-top">
+                        <img src="{{ $post->image_path }}" class="card-img-top">
                     @endif
                     <p class="card-text">{{ str_limit($post->body, 1500) }}</p>
                     <div align="left">
