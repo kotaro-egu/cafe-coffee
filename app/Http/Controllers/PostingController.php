@@ -24,8 +24,8 @@ class PostingController extends Controller
       $post->user_id = Auth::id();
       $form = $request->all();
       if (isset($form['image'])) {
-          $path = Storage::disk('s3')->putFile('/',$posts_form['image'],'public');
-          $posts->image_path = Storage::disk('s3')->url($path);   
+          $path = Storage::disk('s3')->putFile('/',$form['image'],'public');
+          $post->image_path = Storage::disk('s3')->url($path);   
       } else {
           $post->image_path = "";
       }
