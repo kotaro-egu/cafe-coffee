@@ -16,7 +16,7 @@
 
                    You are logged in!
                    <div style="text-align:center">
-                    <a class="btn-primary btn" href="https://1aba965f28ab49eab49987b8d40c938b.vfs.cloud9.us-east-2.amazonaws.com" 
+                    <a class="btn-primary btn" href="{{ url('/') }}"
                     style="">Accesss to TOP page!</a>
                     </div>
                 </div>
