@@ -65,7 +65,7 @@
                                 
                             <div style="text-align: justify;padding-top:50px;"> 
                              <a>new account user？/新規作成はこちら→</a>　
-                             <a class="btn-primary btn" href="https://1aba965f28ab49eab49987b8d40c938b.vfs.cloud9.us-east-2.amazonaws.com/register">
+                             <a class="btn-primary btn" href="{{ url('/') }}">
                              新規登録/create new account</a>
                             </div>
                         </div>
