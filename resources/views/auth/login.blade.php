@@ -65,7 +65,7 @@
                                 
                             <div style="text-align: justify;padding-top:50px;"> 
                              <a>new account user？/新規作成はこちら→</a>　
-                             <a class="btn-primary btn" href="{{ url('/') }}">
+                             <a class="btn-primary btn" href="{{ route('register') }}">
                              新規登録/create new account</a>
                             </div>
                         </div>
